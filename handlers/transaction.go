@@ -156,6 +156,7 @@ func (h *handlerTransaction) CreateTransaction(w http.ResponseWriter, r *http.Re
 		Status:    "pending",
 		User:      request.User,
 		Attache:   "-",
+		OrderDate: time.Now(),
 	}
 	fmt.Println(transaction)
 
