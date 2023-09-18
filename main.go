@@ -6,6 +6,7 @@ import (
 	"backend_project/routes"
 	"fmt"
 	"net/http"
+	"os"
 
 	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
@@ -16,6 +17,7 @@ func main() {
 
 	errEnv := godotenv.Load()
 	if errEnv != nil {
+		fmt.Println(errEnv)
 		panic("Failed to load env file")
 	}
 
@@ -39,8 +41,8 @@ func main() {
 	var AllowedMethods = handlers.AllowedMethods([]string{"GET", "POST", "PUT", "HEAD", "OPTIONS", "PATCH", "DELETE"})
 	var AllowedOrigins = handlers.AllowedOrigins([]string{"*"})
 
-	var port = "5000"
-	// var port = os.Getenv("PORT")
+	// var port = "5000"
+	var port = os.Getenv("PORT")
 	fmt.Println("server running localhost:" + port)
 	// if port=="" {
 	// 	port="5000"
