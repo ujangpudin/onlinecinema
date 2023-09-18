@@ -43,6 +43,9 @@ func main() {
 	// var port = "5000"
 	var port = os.Getenv("PORT")
 	fmt.Println("server running localhost:" + port)
+	if port=="" {
+		port="5000"
+	}
 
 	// Embed the setup allowed in 2 parameter on this below code ...
 
