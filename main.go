@@ -17,7 +17,6 @@ func main() {
 
 	errEnv := godotenv.Load()
 	if errEnv != nil {
-		fmt.Println(errEnv)
 		panic("Failed to load env file")
 	}
 
@@ -44,13 +43,8 @@ func main() {
 	// var port = "5000"
 	var port = os.Getenv("PORT")
 	fmt.Println("server running localhost:" + port)
-	if port=="" {
-		port="5000"
-		http.ListenAndServe(":"+port, handlers.CORS(AllowedHeaders, AllowedMethods, AllowedOrigins)(r))
-		return
-	}
-	
-	// Embed the setup allowed in 2 parameter on this below code ...
-	http.ListenAndServe(":"+port, handlers.CORS(AllowedHeaders, AllowedMethods, AllowedOrigins)(r))
 
+	// Embed the setup allowed in 2 parameter on this below code ...
+
+	http.ListenAndServe(":"+port, handlers.CORS(AllowedHeaders, AllowedMethods, AllowedOrigins)(r))
 }
