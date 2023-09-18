@@ -6,7 +6,6 @@ import (
 	"backend_project/routes"
 	"fmt"
 	"net/http"
-	"os"
 
 	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
@@ -40,12 +39,12 @@ func main() {
 	var AllowedMethods = handlers.AllowedMethods([]string{"GET", "POST", "PUT", "HEAD", "OPTIONS", "PATCH", "DELETE"})
 	var AllowedOrigins = handlers.AllowedOrigins([]string{"*"})
 
-	// var port = "5000"
-	var port = os.Getenv("PORT")
+	var port = "5000"
+	// var port = os.Getenv("PORT")
 	fmt.Println("server running localhost:" + port)
-	if port=="" {
-		port="5000"
-	}
+	// if port=="" {
+	// 	port="5000"
+	// }
 
 	// Embed the setup allowed in 2 parameter on this below code ...
 
