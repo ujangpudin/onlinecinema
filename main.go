@@ -47,6 +47,7 @@ func main() {
 	if port=="" {
 		port="5000"
 		http.ListenAndServe(":"+port, handlers.CORS(AllowedHeaders, AllowedMethods, AllowedOrigins)(r))
+		return
 	}
 	
 	// Embed the setup allowed in 2 parameter on this below code ...
